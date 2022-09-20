@@ -18,7 +18,7 @@ body::-webkit-scrollbar {
 }
 /*Styles of the header*/
 #header-container{
-    position: fixed;
+    position: relative;
     display: flex;
     align-items: center;
     width: 100%;
@@ -27,4 +27,241 @@ body::-webkit-scrollbar {
 }
 #header-container img{
     margin-left: 5%;
+}
+/*Home styles*/
+#homePage-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 68vh;
+    width: 100%;
+    gap: 40px;
+}
+.start-game, .add-word{
+    width: 500px;
+    padding: 2% 0%;
+    border-radius: 300px;
+    cursor: pointer;
+    border: 1px solid var(--color1);
+    font-weight: bold;
+    font-size: 1.5em;
+    transition: .2s;
+}
+.start-game:hover, .add-word:hover{
+    transform: scale(0.98);
+}
+.start-game{
+    background-color: var(--color1);
+    color: white;
+}
+.add-word{
+    background: none;
+    color: var(--color1);
+}
+.Alura-title{
+    font-size: 1.5em;
+    color: var(--color1);
+    font-weight: bold;
+}
+/*Footer styles*/
+#footer-container{
+    width: 100%;
+    height: 20vh;
+}
+.footer-design{
+    display: flex;
+    align-items: center;
+    width: 30%;
+    height: 120px;
+    border-radius: 0px 50px 50px 0px;
+    background-color: var(--color1);
+    overflow: hidden;
+}
+.footer-design a{
+    margin-left: 5%;
+    width: 15%;
+}
+.footer-design img{
+    width: 100%;
+}   
+.footer-text-container{
+    display: flex;
+    flex-direction: column;
+    color: white;
+    width: 80%;
+    height: 100%;
+    justify-content: center;
+    margin-left: 4% ;
+}
+.footer-text-container h4{
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-top: 4%;
+    margin-bottom: 0;
+}
+/*New Word section styles*/
+#newWord-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    width: 100%;
+}
+#newWord-container::before{
+    content: '';
+    background-color: var(--color1);
+    height: 5px;
+    width: 72.5%;
+    position: absolute;
+    right: 0;
+}
+#second-footer-container{
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color1);
+}
+.second-footer-title{
+    color: white;
+    font-size: 1em;
+}
+#newWord{
+    overflow: auto;
+    height: 60%;
+    width: 45%;
+    padding: 1% 0 0 0%;
+    border: none;
+    color: var(--color2);
+    font-size: 1.6em;
+    font-weight: bold;
+    resize: none;
+}
+#newWord:focus{
+    outline: none;
+}
+#newWord::placeholder{
+    color: var(--color2);
+    font-weight: bold;
+}
+.warning-container{
+    height: 3%;
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+.warning-container img{
+    height: 100%;
+    margin-right: 1%;
+}
+.warning-container p{
+    font-weight: bold;
+    color: #525252;
+}
+.buttons-addWord-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    width: 45%;
+    gap: 40px;
+}
+.addWord-button, .backHome-button{
+    padding: 3% 5%;
+    border-radius: 24px;
+    width: 350px;
+    font-size: 1.2em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+.addWord-button:hover, .backHome-button:hover{
+    transform: scale(0.98);
+}
+.addWord-button{
+    background-color: var(--color1);
+    color: white;
+    border: 1px solid var(--color1);
+}
+.backHome-button{
+    background: none;
+    border: 1px solid var(--color1);
+    color: var(--color1);
+}
+/*Responsive styles*/
+/*Styles for the width*/
+@media(max-width: 1200px){
+    .footer-design{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        border-radius: 0px 0px 0px 0px;
+    }
+    .footer-design img{
+        width: 100px;
+        height: 100px;
+    }
+    .footer-design a {
+        margin: 0;
+    }
+    .footer-text-container{
+        width: unset;
+        margin: 0;
+    }
+}
+@media(max-width: 680px){
+    .footer-design{
+        justify-content: flex-start;
+    }
+    .footer-design a{
+        margin: 0px 5%;
+    }
+}
+@media(max-width: 500px){
+    body{
+        background-color: var(--color1);
+    }
+    #header-container img{
+        filter: invert(1);
+    }
+    .start-game, .add-word{
+        border: 1px solid #ffffff;
+        width: 280px;
+    }
+    .Alura-title{
+        color: white;
+    }
+    .add-word{
+        color: white;
+    }
+    .start-game{
+        color: black;
+        background-color: white;
+    }
+    .footer-design img{
+        width: 60px;
+        height: 60px;
+    }
+    .footer-text-container h4{
+        text-align: center;
+        font-size: 1.2em;
+    }
+    .footer-text-container p{
+        text-align: center;
+        font-size: 1em;
+    }
+}
+/*Styles for the height*/
+@media(max-height:530px){
+    .footer-design{
+        margin-top: 5%;
+    }
+}
+/*----------------------*/
+.inactive{
+    display: none !important;
 }
