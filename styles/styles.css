@@ -37,6 +37,7 @@ body::-webkit-scrollbar {
     height: 68vh;
     width: 100%;
     gap: 40px;
+    overflow-x: hidden;
 }
 .start-game, .add-word{
     width: 500px;
@@ -107,6 +108,7 @@ body::-webkit-scrollbar {
     align-items: center;
     height: 80vh;
     width: 100%;
+    overflow-x: hidden;
 }
 #newWord-container::before{
     content: '';
@@ -190,6 +192,33 @@ body::-webkit-scrollbar {
     border: 1px solid var(--color1);
     color: var(--color1);
 }
+.alert-saved{
+    position: absolute;
+    right: 0;
+    display: flex;
+    align-items: center;
+    width: 45%;
+    height: 120px;
+    color: white;
+    background-color: var(--color1);
+    right: -100%;
+    border-radius: 0 0 0 20px;
+    transition: .3s;
+}
+
+.alert-saved img{
+    margin: 0 30px;
+    width: 90px;
+    height: 100px;
+    object-fit: contain;
+}
+
+.info-alert-saved h5{
+    font-size: 1.5em;
+    margin: 0;
+}
+
+
 /*Responsive styles*/
 /*Styles for the width*/
 @media(max-width: 1200px){

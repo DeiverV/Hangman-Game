@@ -1,7 +1,7 @@
 startGameButton.addEventListener('click', ()=>{
     location.hash = '#game';
 })
-addNewWordButton.addEventListener('click', ()=>{
+goToSaveNewWord.addEventListener('click', ()=>{
   location.hash = '#newWord';
 })
 backHomeButton.addEventListener('click', ()=>{
