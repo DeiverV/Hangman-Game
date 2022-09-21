@@ -5,7 +5,10 @@ goToSaveNewWord.addEventListener('click', ()=>{
   location.hash = '#newWord';
 })
 backHomeButton.addEventListener('click', ()=>{
-  location.hash = '#home'
+  location.hash = '#home';
+})
+leaveGameButton.addEventListener('click', ()=>{
+  location.hash = '#home';
 })
 
 window.addEventListener('DOMContentLoaded', navigator, false);
@@ -16,16 +19,9 @@ function navigator() {
       homePage();
     } else if (location.hash.startsWith('#newWord')) {
       newWordPage();
+    } else if (location.hash.startsWith('#game')) {
+      gamePage();
     }
-  
-    function smoothscroll(){
-      const currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-      if (currentScroll > 0) {
-            window.requestAnimationFrame(smoothscroll);
-            window.scrollTo (0,currentScroll - (currentScroll/5));
-      }
-    };
-    smoothscroll();
 }
 
 function homePage() {
@@ -33,6 +29,7 @@ function homePage() {
   homePageContainer.classList.remove('inactive');
   footerOfAddWord.classList.add('inactive');
   newWordContainer.classList.add('inactive');
+  gameStartedContainer.classList.add('inactive');
 }
 
 function newWordPage() {
@@ -40,5 +37,13 @@ function newWordPage() {
   newWordContainer.classList.remove('inactive');
   footerOfmainPage.classList.add('inactive');
   homePageContainer.classList.add('inactive');
+  gameStartedContainer.classList.add('inactive');
+}
 
+function gamePage() {
+  footerOfAddWord.classList.add('inactive');
+  newWordContainer.classList.add('inactive');
+  footerOfmainPage.classList.add('inactive');
+  homePageContainer.classList.add('inactive');
+  gameStartedContainer.classList.remove('inactive');
 }
