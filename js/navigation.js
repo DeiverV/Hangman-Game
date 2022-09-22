@@ -21,6 +21,7 @@ function navigator() {
       newWordPage();
     } else if (location.hash.startsWith('#game')) {
       gamePage();
+      newGame();
     }
 }
 

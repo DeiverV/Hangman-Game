@@ -9,31 +9,14 @@ addNewWordButton.addEventListener("click",(e)=>{
     let wordToSave = newWord.value.toUpperCase()
 
     if(!wordList.includes(wordToSave)){
-
         wordList.push(wordToSave)
         localStorage.setItem('wordsToPlay',JSON.stringify(wordList));
         
-        imgAlertSavedWord.src="./assets/checkSaved.png";
-        tittleAlertSavedWord.textContent="Guardado!"
-        textAlertSavedWord.textContent=`"${newWord.value}" Agregado exitosamente`;
-        alertSavedWord.style.left="0";
-
-        setTimeout(()=>{
-            alertSavedWord.style.left="-100%";
-        },3000)
-
+        showNotification("./assets/errorSaved.png","No Guardado!",`"${newWord.value}" Ya se encuentra agregado!`)
         newWord.value=''
         return
     }
-
-    imgAlertSavedWord.src="./assets/errorSaved.png";
-    tittleAlertSavedWord.textContent="No Guardado!"
-    textAlertSavedWord.textContent=`"${newWord.value}" Ya se encuentra agregado!`;
-        alertSavedWord.style.left="0";
-
-    setTimeout(()=>{
-        alertSavedWord.style.left="-100%";
-    },4000)
+    showNotification("./assets/errorSaved.png","No Guardado!",`"${newWord.value}" Ya se encuentra agregado!`)
 
 })
 

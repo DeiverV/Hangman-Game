@@ -21,5 +21,20 @@ const goToSaveNewWord = document.querySelector('.add-word');
 const leaveGameButton = document.querySelector('.leaveGame-button');
 
 //Variables to in game functionalities
+const abecedaryInMayus = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z']
 const containerOfSpacesForWordChars = document.querySelector(".word-container")
 const containerOfIncorrectChars = document.querySelector(".bad-letters-container")
+
+//Recurrent Function
+
+
+function showNotification(imgUrl,tittle,text) {
+    imgAlertSavedWord.src=imgUrl;
+    tittleAlertSavedWord.textContent=tittle
+    textAlertSavedWord.textContent=text;
+    alertSavedWord.style.left="0";
+
+    setTimeout(()=>{
+        alertSavedWord.style.left="-100%";
+    },4000)
+}
