@@ -194,15 +194,14 @@ body::-webkit-scrollbar {
 }
 .alert-saved{
     position: absolute;
-    right: 0;
-    display: none;
+    display: flex;
     align-items: center;
     width: 45%;
     height: 120px;
     color: white;
     background-color: var(--color1);
-    right: -100%;
-    border-radius: 0 0 0 20px;
+    left: -100%;
+    border-radius: 0 0 20px 0;
     transition: .3s;
 }
 

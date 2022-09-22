@@ -20,3 +20,6 @@ const startGameButton = document.querySelector('.start-game');
 const goToSaveNewWord = document.querySelector('.add-word');
 const leaveGameButton = document.querySelector('.leaveGame-button');
 
+//Variables to in game functionalities
+const containerOfSpacesForWordChars = document.querySelector(".word-container")
+const containerOfIncorrectChars = document.querySelector(".bad-letters-container")
