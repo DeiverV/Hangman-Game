@@ -12,11 +12,11 @@ addNewWordButton.addEventListener("click",(e)=>{
         wordList.push(wordToSave)
         localStorage.setItem('wordsToPlay',JSON.stringify(wordList));
         
-        showNotification("./assets/errorSaved.png","No Guardado!",`"${newWord.value}" Ya se encuentra agregado!`)
+        showNotification("./assets/errorSaved.png","Guardado!",`"${newWord.value}" Ya se encuentra agregado!`)
         newWord.value=''
         return
     }
-    showNotification("./assets/errorSaved.png","No Guardado!",`"${newWord.value}" Ya se encuentra agregado!`)
+    showNotification("./assets/errorSaved.png","Alerta!",`"${newWord.value}" Ya se encuentra agregado!`)
 
 })
 

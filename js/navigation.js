@@ -11,8 +11,8 @@ leaveGameButton.addEventListener('click', ()=>{
   location.hash = '#home';
 })
 
-window.addEventListener('DOMContentLoaded', navigator, false);
-window.addEventListener('hashchange', navigator, false);
+window.addEventListener('DOMContentLoaded', navigator, true);
+window.addEventListener('hashchange', navigator, true);
 
 function navigator() {
     if (location.hash.startsWith('#home')) {

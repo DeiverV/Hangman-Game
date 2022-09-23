@@ -1,29 +1,31 @@
 function newGame(){
-            
+    
     containerOfSpacesForWordChars.innerHTML = '';
     containerOfIncorrectChars.innerHTML = '';
-
+    
     const wordsToPlayList = JSON.parse(localStorage.getItem('wordsToPlay'));
     const wordToGuess = wordsToPlayList[Math.floor(Math.random() * wordsToPlayList.length)];
     
     let correctCharList = [];
     let incorrectCharList = [];
+    let correctChars = 0;
     let spaceOfChar;
-    
+
     for(let index=0 ; index < wordToGuess.length ;index++){
         spaceOfChar = document.createElement('span');
-        spaceOfChar.setAttribute('id',index);
         spaceOfChar.setAttribute('class','wordChar');
         containerOfSpacesForWordChars.appendChild(spaceOfChar);
     }
     
+    console.log(wordToGuess);
     const spacesOfCharsToFill = document.querySelectorAll(".wordChar");
     
     document.addEventListener('keydown', (event) => {
-    
+
+
         let keyValue = event.key.toUpperCase();
-        let correctChars = 0;
-        if(!abecedaryInMayus.includes(keyValue)) return;
+
+        if((!keyValue.match(/[ÑA-Z]/i) || keyValue.length>1 ) || correctCharList.includes(keyValue)) return ;
     
         if(wordToGuess.includes(keyValue)){
     
@@ -39,26 +41,23 @@ function newGame(){
     
             appearedIndexes.forEach(indice => {
                 spacesOfCharsToFill[indice].textContent=keyValue;
+                correctChars++;
             });
     
-            spacesOfCharsToFill.forEach(space=>{
-                if(space.textContent!=''){
-                    correctChars++
-                }
-            })
-    
             if(correctChars == wordToGuess.length){
-                showNotification("./assets/winImg.png","¡¡Ganaste!!",`"${wordToGuess}" era la palabra!`)
-
+                showNotification("./assets/winImg.png","¡¡Ganaste!!",`"${wordToGuess}" era la palabra!`);
+                
                 setTimeout(()=>{
-                    location.hash = '#home';
-                },4000)
+                    location.hash="#home";
+                    location.reload();
+                },2000)
             };
-            
+
             return;
         }
     
         if(!incorrectCharList.includes(keyValue)){
+
             let incorrectCharToRender = document.createElement('p');
             incorrectCharToRender.textContent=keyValue;
             
@@ -66,11 +65,12 @@ function newGame(){
             incorrectCharList.push(keyValue);
     
             if(incorrectCharList.length==9){
-                showNotification("./assets/loseImg.png","Perdiste :(",`"${wordToGuess}" era la palabra!`)
+                showNotification("./assets/loseImg.png","Perdiste :(",`"${wordToGuess}" era la palabra!`);
 
                 setTimeout(()=>{
-                    location.hash = '#home';
-                },4000)
+                    location.hash="#home";
+                    location.reload();
+                },2000)
 
             };
         }  
