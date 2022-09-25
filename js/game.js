@@ -1,5 +1,4 @@
 function newGame(){
-    navigator.virtualKeyboard.show();
     
     containerOfSpacesForWordChars.innerHTML = '';
     containerOfIncorrectChars.innerHTML = '';

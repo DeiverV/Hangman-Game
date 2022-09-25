@@ -424,6 +424,14 @@ body::-webkit-scrollbar {
     .buttons-in-game button{
         width: 250px;
     }
+    .alert-saved{
+        background-color: #ffffff;
+        color: var(--color1);
+        width: 100%;
+    }
+    .alert-saved img{
+        filter: invert(1);
+    }
 }
 @media (max-width: 370px){
     .addWord-button, .backHome-button{
