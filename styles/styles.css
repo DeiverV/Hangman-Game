@@ -226,11 +226,19 @@ body::-webkit-scrollbar {
     height: 100vh;
 }
 .hangman-toy{
+    display: flex;
     min-height: 600px;
+    max-height: 600px;
     min-width: 600px;
     width: 30%;
     background-color: var(--color1);
+    justify-content: center;
+    align-items: center;
     border-radius: 2px;
+}
+.hangman-toy img{
+    width: 100%;
+    filter: invert(1);
 }
 .word-container{
     display: flex;

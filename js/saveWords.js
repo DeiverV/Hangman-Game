@@ -6,17 +6,17 @@ if(!localStorage.getItem('wordsToPlay')){
 addNewWordButton.addEventListener("click",(e)=>{
     let newWord = document.querySelector("#newWord"); 
     let wordList = JSON.parse(localStorage.getItem('wordsToPlay'));
-    let wordToSave = newWord.value.toUpperCase()
+    let wordToSave = newWord.value.toUpperCase();
 
     if(!wordList.includes(wordToSave)){
-        wordList.push(wordToSave)
+        wordList.push(wordToSave);
         localStorage.setItem('wordsToPlay',JSON.stringify(wordList));
         
-        showNotification("./assets/errorSaved.png","Guardado!",`"${newWord.value}" Ya se encuentra agregado!`)
-        newWord.value=''
-        return
+        showNotification("./assets/checkSaved.png","Guardado!",`"${newWord.value}" acaba de ser guardado!`);
+        newWord.value='';
+        return;
     }
-    showNotification("./assets/errorSaved.png","Alerta!",`"${newWord.value}" Ya se encuentra agregado!`)
+    showNotification("./assets/errorSaved.png","Alerta!",`"${newWord.value}" Ya se encuentra agregado!`);
 
 })
 

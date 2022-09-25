@@ -1,15 +1,18 @@
 startGameButton.addEventListener('click', ()=>{
     location.hash = '#game';
-})
+});
 goToSaveNewWord.addEventListener('click', ()=>{
   location.hash = '#newWord';
-})
+});
 backHomeButton.addEventListener('click', ()=>{
   location.hash = '#home';
-})
+});
 leaveGameButton.addEventListener('click', ()=>{
   location.hash = '#home';
-})
+});
+newWordToPlayButton.addEventListener('click', ()=>{
+  location.reload();
+});
 
 window.addEventListener('DOMContentLoaded', navigator, true);
 window.addEventListener('hashchange', navigator, true);

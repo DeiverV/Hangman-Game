@@ -1,4 +1,5 @@
 function newGame(){
+    navigator.virtualKeyboard.show();
     
     containerOfSpacesForWordChars.innerHTML = '';
     containerOfIncorrectChars.innerHTML = '';
@@ -10,6 +11,10 @@ function newGame(){
     let incorrectCharList = [];
     let correctChars = 0;
     let spaceOfChar;
+    let appearedIndexes;
+    let searchedChar;
+    let incorrectCharToRender;
+    let indexOfHangManImg = 1;
 
     for(let index=0 ; index < wordToGuess.length ;index++){
         spaceOfChar = document.createElement('span');
@@ -22,31 +27,29 @@ function newGame(){
     
     document.addEventListener('keydown', (event) => {
 
-
         let keyValue = event.key.toUpperCase();
 
+        if(correctChars==wordToGuess.length || incorrectCharList.length==6) return;
         if((!keyValue.match(/[ÑA-Z]/i) || keyValue.length>1 ) || correctCharList.includes(keyValue)) return ;
+
     
         if(wordToGuess.includes(keyValue)){
-    
             if(!correctCharList.includes(keyValue)) correctCharList.push(keyValue);
-    
-            let appearedIndexes = [];
-            let searchedChar = wordToGuess.indexOf(keyValue);
-    
+
+            appearedIndexes = [];
+            searchedChar = wordToGuess.indexOf(keyValue);
             while (searchedChar != -1) {
                 appearedIndexes.push(searchedChar);
                 searchedChar = wordToGuess.indexOf(keyValue, searchedChar + 1);
             }
     
             appearedIndexes.forEach(indice => {
-                spacesOfCharsToFill[indice].textContent=keyValue;
                 correctChars++;
+                spacesOfCharsToFill[indice].textContent=keyValue;
             });
     
             if(correctChars == wordToGuess.length){
                 showNotification("./assets/winImg.png","¡¡Ganaste!!",`"${wordToGuess}" era la palabra!`);
-                
                 setTimeout(()=>{
                     location.hash="#home";
                     location.reload();
@@ -57,24 +60,24 @@ function newGame(){
         }
     
         if(!incorrectCharList.includes(keyValue)){
-
-            let incorrectCharToRender = document.createElement('p');
-            incorrectCharToRender.textContent=keyValue;
-            
-            containerOfIncorrectChars.appendChild(incorrectCharToRender);
             incorrectCharList.push(keyValue);
+
+            indexOfHangManImg++
+            contenedorImagenHang.src = `./assets/hangman${indexOfHangManImg}.png`
+
+            incorrectCharToRender = document.createElement('p');
+            incorrectCharToRender.textContent=keyValue;
+            containerOfIncorrectChars.appendChild(incorrectCharToRender);
     
-            if(incorrectCharList.length==9){
+            if(incorrectCharList.length==6){
                 showNotification("./assets/loseImg.png","Perdiste :(",`"${wordToGuess}" era la palabra!`);
 
                 setTimeout(()=>{
                     location.hash="#home";
                     location.reload();
                 },2000)
-
             };
         }  
             
     });
 }
-
