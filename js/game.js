@@ -1,5 +1,6 @@
 function newGame(){
-    
+
+
     containerOfSpacesForWordChars.innerHTML = '';
     containerOfIncorrectChars.innerHTML = '';
     

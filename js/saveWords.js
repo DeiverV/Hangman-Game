@@ -1,5 +1,5 @@
 if(!localStorage.getItem('wordsToPlay')){
-    let startWordList = [];
+    let startWordList = ["HTML","ALURA","JAVASCRIPT","RESPONSIVE","ORACLE"];
     localStorage.setItem('wordsToPlay',JSON.stringify(startWordList));
 }
 
