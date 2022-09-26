@@ -23,7 +23,6 @@ function navigator() {
     } else if (location.hash.startsWith('#newWord')) {
       newWordPage();
     } else if (location.hash.startsWith('#game')) {
-      navigator.virtualKeyboard.overlaysContent = true
       gamePage();
       newGame();
     }
